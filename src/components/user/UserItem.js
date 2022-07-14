@@ -1,4 +1,5 @@
 import { DateUtil } from "../../utils/date";
+import { UserActions } from "./UserListConstants";
 
 const UserItem = (props) => {
     const blankProfilUrl = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png";
@@ -19,7 +20,7 @@ const UserItem = (props) => {
       <td>{DateUtil(props.createdAt)}</td>
 
       <td className="actions">
-        <button className="btn edit-btn" title="Edit">
+        <button className="btn edit-btn" title="Edit" onClick={() => {props.onActionClick(props._id, UserActions.Edit)}}>
           <svg
             aria-hidden="true"
             focusable="false"
@@ -36,7 +37,7 @@ const UserItem = (props) => {
             ></path>
           </svg>
         </button>
-        <button className="btn delete-btn" title="Delete">
+        <button className="btn delete-btn" title="Delete" onClick={() => props.onActionClick(props._id, UserActions.Delete)}>
           <svg
             aria-hidden="true"
             focusable="false"
@@ -53,7 +54,7 @@ const UserItem = (props) => {
             ></path>
           </svg>
         </button>
-        <button className="btn info-btn" title="Info" onClick={() => props.onDetailsClick(props._id)} >
+        <button className="btn info-btn" title="Info" onClick={() => props.onActionClick(props._id, UserActions.Details)} >
           <svg
             aria-hidden="true"
             focusable="false"
