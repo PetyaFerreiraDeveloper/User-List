@@ -17,8 +17,6 @@ function App() {
     .then(users => setUsers(users));
   }, []);
 
-  console.log(users);
-
   return (
     <div>
       <Header />
